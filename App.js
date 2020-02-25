@@ -1,10 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import colors from './assets/colors'
+
+import Pill from './components/Pill';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Pill text = 'Ricardo Santos'/>
     </View>
   );
 }
@@ -12,7 +15,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.LIGHT,
     alignItems: 'center',
     justifyContent: 'center',
   },
