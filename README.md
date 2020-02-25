@@ -7,7 +7,7 @@
 
 ## Requirements
 
-- Must use 'redux'
+- Must use `redux`
 - Must make at least one network call
 - Must have at least one stack navigator
 - Must have at least one tab navigator
@@ -23,7 +23,7 @@ The following steps must be completed no later than **Tuesday, June 30, 2020 at 
 
 1. If you haven’t done so already, visit [this link](https://submit.cs50.io/invites/107c19b133014e90b0c379f4107794e8), log in with your GitHub account, and click **Authorize cs50**. Then, check the box indicating that you’d like to grant course staff access to your submissions, and click **Join course**.
 
-2. Using [Git](https://git-scm.com/downloads), push your work to 'https://github.com/me50/USERNAME.git', where USERNAME is your GitHub username, on a branch called 'mobile50/projects/2020/x/final' or, if you’ve installed '[submit50](https://cs50.readthedocs.io/submit50/)', execute
+2. Using [Git](https://git-scm.com/downloads), push your work to `https://github.com/me50/USERNAME.git`, where USERNAME is your GitHub username, on a branch called `mobile50/projects/2020/x/final` or, if you’ve installed `[submit50](https://cs50.readthedocs.io/submit50/)`, execute
 
         'submit50 mobile50/projects/2020/x/final'
 
