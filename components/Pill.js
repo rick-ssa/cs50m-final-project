@@ -21,7 +21,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         padding: 4,
         height: 30,
-        alignItems: 'center'
+        alignItems: 'center',
+        shadowColor: colors.DARKGREEN,
+        shadowOffset: {width:2,height:2},
+        shadowOpacity: 1,
     },
     text: {
         paddingLeft: 10,
@@ -38,5 +41,6 @@ const styles = StyleSheet.create({
     },
     textButton: {
         color: colors.YELLOW,
+        fontSize: 20,
     }
 })
