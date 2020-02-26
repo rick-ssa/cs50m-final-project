@@ -5,10 +5,10 @@ import colors from '../assets/colors'
 
 export default function Pill(props) {
     return (
-        <View style = {styles.container}>
+        <View style = {[styles.container, {margin: props.marginAround}]}>
             <Text style = {styles.text}>{props.text}</Text>
             <TouchableOpacity style ={styles.closeButton} onPress = {props.onClose}>
-                <Text style = {styles.textButton}>&times;</Text>
+                <Text style = {styles.textButton}>&#10007;</Text>
             </TouchableOpacity>
         </View>
     )
@@ -41,6 +41,6 @@ const styles = StyleSheet.create({
     },
     textButton: {
         color: colors.YELLOW,
-        fontSize: 20,
+        fontSize: 16,
     }
 })

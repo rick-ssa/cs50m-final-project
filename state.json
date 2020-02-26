@@ -1,0 +1,106 @@
+{
+    "query":"",
+    "filters": [
+        {"name":"cusine", "data":[]},
+        {"name":"diet", "data":[]},
+        {"name":"intolerances", "data":[]},
+        {"name":"excludeItems", "data":[]}
+    ],
+    "recepies": [{
+        "id": 492560,
+        "title": "Quick and Easy St. Louis-Style Pizza",
+        "readyInMinutes": 27,
+        "servings": 8,
+        "image": "St--Louis-Style-Pizza-492560.jpg",
+        "imageUrls": [
+          "St--Louis-Style-Pizza-492560.jpg"
+        ]
+      },{
+        "id": 559251,
+        "title": "Breakfast Pizza",
+        "readyInMinutes": 25,
+        "servings": 6,
+        "image": "Breakfast-Pizza-559251.jpg",
+        "imageUrls": [
+          "Breakfast-Pizza-559251.jpg"
+        ]
+      }
+    ],
+    "actualRecipe" : {
+        "ingredients": [
+            {
+              "name": "pizza dough",
+              "image": "pizza-dough.jpg",
+              "amount": {
+                "metric": {
+                  "value": 453.592,
+                  "unit": "g"
+                },
+                "us": {
+                  "value": 1.0,
+                  "unit": "lb"
+                }
+              }
+            },
+            {
+              "name": "olive oil",
+              "image": "olive-oil.jpg",
+              "amount": {
+                "metric": {
+                  "value": 1.0,
+                  "unit": "Tbsp"
+                },
+                "us": {
+                  "value": 1.0,
+                  "unit": "Tbsp"
+                }
+              }
+            }
+        ],
+        "prepare": {
+            "name": "",
+            "steps": [
+            {
+                "number": 1,
+                "step": "Preheat oven to 500 F degrees.Spray a baking sheet (15.25 x 10.25 inches) with cooking spray.",
+                "ingredients": [],
+                "equipment": [
+                {
+                    "id": 404727,
+                    "name": "baking sheet",
+                    "image": "baking-sheet.jpg"
+                },
+                {
+                    "id": 404784,
+                    "name": "oven",
+                    "image": "oven.jpg",
+                    "temperature": {
+                    "number": 500.0,
+                    "unit": "Fahrenheit"
+                    }
+                }
+                ]
+            },
+            {
+                "number": 2,
+                "step": "Roll out the pizza dough and place it on the pizza baking dish.",
+                "ingredients": [
+                {
+                    "id": 93610,
+                    "name": "pizza dough",
+                    "image": "pizza-dough.jpg"
+                }
+                ],
+                "equipment": [
+                {
+                    "id": 404646,
+                    "name": "baking pan",
+                    "image": "roasting-pan.jpg"
+                }
+                ]
+               }
+            ]
+        }
+    }
+
+}

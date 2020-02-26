@@ -2,12 +2,13 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import colors from './assets/colors'
 
-import Pill from './components/Pill';
+import PillsContainer from './components/PillsContainer';
 
 
 export default function App() {
   
-  const [arr, setArr] = useState(['Italian','Mexican','African','Japanese','Brasilian','Gluten Free', 'Vegetarian','Vegan'])
+  const [pills, setPills] = useState(
+    [{text:'Italian',onClose: 'hi', marginAround:4},{text:'Italian',onClose: 'hi', marginAround:4},{text:'Italian',onClose: 'hi', marginAround:4},{text:'Italian',onClose: 'hi', marginAround:4},{text:'Chinese',onClose: 'hi', marginAround:4}])
   function handleCloseClick(i) {
     setArr(()=>(arr.filter((v,index)=>{
       if(index!==i) {
@@ -19,9 +20,10 @@ export default function App() {
   }
   return (
     <View style={styles.container}>
-      { arr.map((pillText,i) => {
-        return <Pill onClose = {()=>handleCloseClick(i)} key = {i} text = {pillText} />
-      })}
+     <PillsContainer pills = {pills} title='Cuisine' onAdd = {()=>console.log('you just did it')}/>
+     <PillsContainer title='Diet' onAdd = {()=>console.log('you just did it')}/>
+     <PillsContainer title='Intolerances' onAdd = {()=>console.log('you just did it')}/>
+     <PillsContainer title='Excluded Ingredients' onAdd = {()=>console.log('you just did it')}/>
     </View>
   );
 }
@@ -29,8 +31,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.LIGHT,
-    alignItems: 'center',
-    justifyContent:'space-around',
+    backgroundColor: 'white',
+    alignItems: 'stretch',
+    justifyContent: 'center'
   },
 });
