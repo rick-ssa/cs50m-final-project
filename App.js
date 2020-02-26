@@ -21,7 +21,7 @@ export default function App() {
   return (
     <View style={styles.container}>
      <PillsContainer pills = {pills} title='Cuisine' onAdd = {()=>console.log('you just did it')}/>
-     <PillsContainer title='Diet' onAdd = {()=>console.log('you just did it')}/>
+     <PillsContainer pills = {pills.map(v=>{return v.text==='Italian'? {...v,text:'American'}:v})}title='Diet' onAdd = {()=>console.log('you just did it')}/>
      <PillsContainer title='Intolerances' onAdd = {()=>console.log('you just did it')}/>
      <PillsContainer title='Excluded Ingredients' onAdd = {()=>console.log('you just did it')}/>
     </View>
