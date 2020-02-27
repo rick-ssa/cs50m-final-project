@@ -15,8 +15,8 @@ export default function PillsContainer(props) {
             <View style = {styles.pillsWrap}>
                 {
                     props.pills ?
-                    props.pills.map(pill=>{
-                        return <Pill text = {pill.text} onClose = {pill.onClose} marginAround = {pill.marginAround}/>
+                    props.pills.map((pill,i)=>{
+                        return <Pill key = {i} text = {pill.text} onClose = {pill.onClose} marginAround = {pill.marginAround}/>
                     }) :
                     <Text></Text>
                 }
