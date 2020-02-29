@@ -2,110 +2,110 @@
     "query":"",
     "filters": [
         {
-          "name":"Cusine", 
+          "name":"Cuisine", 
           "data":[
                   {
                     "name":"Africa", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"American", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"British", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Cajun", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Caribbean", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Chinese", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Eastern European", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"European", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"French", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"German", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Greek", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Indian", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Irish", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Italian", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Japanese", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Jewish", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Korean", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Latin American", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Mediterranean", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Mexican", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Middle Eastern", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Nordic", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Southern", 
-                    "selected":true
+                    "selected":false
                   },{
                     "name":"Spanish", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Thai", 
-                    "selected":true
+                    "selected":false
                   },
                   {
                     "name":"Vietnamese", 
-                    "selected":true
+                    "selected":false
                   }
                 ]
         },
@@ -114,43 +114,43 @@
           "data":[
             {
               "name":"Gluten Free",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Ketogenic",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Vegetarian",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Lacto-Vegetarian",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Ovo-Vegetarian",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Vegan",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Pescetarian",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Paleo",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Primal",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Whole30",
-              "selected": true
+              "selected": false
             }
           ]
         },
@@ -159,55 +159,54 @@
           "data":[
             {
               "name":"Dairy",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Egg",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Gluten",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Grain",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Peanut",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Seafood",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Sesame",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Shellfish",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Soy",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Sulfite",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Tree Nut",
-              "selected": true
+              "selected": false
             },
             {
               "name":"Wheat",
-              "selected": true
+              "selected": false
             }
           ]
-        },
-        {"name":"Exclude Items", "data":[]}
+        }
     ],
     "recepies": [{
         "id": 492560,

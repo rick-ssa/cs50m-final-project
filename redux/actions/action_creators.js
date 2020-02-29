@@ -1,8 +1,8 @@
-function addFilter(filter,typeAction){
+export function addFilter(filterObject,typeAction){
     return {
         type: typeAction,
         payload: {
-            filter
+            filterObject
         }
     }
 }

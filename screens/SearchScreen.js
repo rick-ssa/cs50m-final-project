@@ -1,6 +1,6 @@
 import React from 'react'
 import {View, Text,TextInput, TouchableOpacity,ScrollView, StyleSheet} from 'react-native'
-import PillsContainer from '../components/PillsContainer'
+import SwitchContainer from '../components/SwitchContainer'
 import colors from '../assets/colors'
 import { connect } from 'react-redux'
 
@@ -13,7 +13,7 @@ function SearchScreen({filters}) {
 
                 <TextInput 
                     style={styles.inputQuery} 
-                    placeholder = 'Type your query'
+                    placeholder = 'Type your query (REQUIRED)'
                     autoFocus                     
                 />
 
@@ -22,11 +22,9 @@ function SearchScreen({filters}) {
             <ScrollView style={styles.filterContainer}>
                 {
                     filters.map(filter =>{
-                        return (<PillsContainer 
+                        return (<SwitchContainer 
                             title = {filter.name} 
-                            onAdd = {()=>console.log('todo')}
-                            pills = {filter.data.filter(data=>data.selected).map((data,i)=>({text: data.name, pillOnCslose: ()=>console.log(i)}))}
-                            pillMarginAround = {8}
+                            switchs = {filter.data.map(dt => ({text: dt.name, selected: dt.selected}))}
                         />)
                     })
                 }
