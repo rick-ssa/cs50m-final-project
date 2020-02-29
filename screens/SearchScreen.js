@@ -2,8 +2,11 @@ import React from 'react'
 import {View, Text,TextInput, TouchableOpacity,ScrollView, StyleSheet} from 'react-native'
 import PillsContainer from '../components/PillsContainer'
 import colors from '../assets/colors'
+import { connect } from 'react-redux'
 
-export default function SeachScreen(props) {
+
+function SearchScreen({filters}) {
+
     return (
         <View  style={styles.container}>
             <View style={styles.inputQueryWrap}>
@@ -17,26 +20,16 @@ export default function SeachScreen(props) {
             </View>
             <Text style={styles.textFilter}>Filters:</Text>
             <ScrollView style={styles.filterContainer}>
-                <PillsContainer 
-                    pills = {[{text:'Mexican', onClose: ()=>console.log('mexican cuisine')}]} 
-                    title = 'Cuisine'
-                />
-                <PillsContainer 
-                    pills = {[
-                                {text:'Vegan', onClose: ()=>console.log('vegan diet')},
-                                {text:'Vegan', onClose: ()=>console.log('vegan diet')},
-                                {text:'Vegan', onClose: ()=>console.log('vegan diet')},
-                                {text:'Vegan', onClose: ()=>console.log('vegan diet')},
-                                {text:'Vegan', onClose: ()=>console.log('vegan diet')},
-                                {text:'Vegan', onClose: ()=>console.log('vegan diet')},
-                                {text:'Vegan', onClose: ()=>console.log('vegan diet')},
-                            ]} 
-                    title = 'Diet'
-                    pillMarginAround = {8}
-                    pillOnClose = {(i)=>console.log('my index is ' + i)}
-                />
-                <PillsContainer title = 'Exclude Ingredient'/>
-                <PillsContainer title = 'Intolerances'/>
+                {
+                    filters.map(filter =>{
+                        return (<PillsContainer 
+                            title = {filter.name} 
+                            onAdd = {()=>console.log('todo')}
+                            pills = {filter.data.filter(data=>data.selected).map((data,i)=>({text: data.name, pillOnCslose: ()=>console.log(i)}))}
+                            pillMarginAround = {8}
+                        />)
+                    })
+                }
             </ScrollView>
             <TouchableOpacity style={styles.searchButton}>
                 <Text style={styles.textSearchButton}> Search</Text>
@@ -95,3 +88,12 @@ const styles = StyleSheet.create({
 
 
 })
+
+const mapStateToProps = state => {
+    return {
+            filters: state.filters
+    }
+
+}
+
+export default connect(mapStateToProps) (SearchScreen)
