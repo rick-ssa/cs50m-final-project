@@ -16,7 +16,7 @@ export default function PillsContainer(props) {
                 {
                     props.pills ?
                     props.pills.map((pill,i)=>{
-                        return <Pill key = {i} text = {pill.text} onClose = {pill.onClose} marginAround = {pill.marginAround}/>
+                        return <Pill key = {i} text = {pill.text} onClose = {()=>props.pillOnClose(i)} marginAround = {props.pillMarginAround}/>
                     }) :
                     <Text></Text>
                 }
