@@ -3,9 +3,11 @@ import {View, Text,TextInput, TouchableOpacity,ScrollView, StyleSheet} from 'rea
 import SwitchContainer from '../components/SwitchContainer'
 import colors from '../assets/colors'
 import { connect } from 'react-redux'
+import {changeQuery} from '../redux/actions/action_creators'
+import {CHANGE_QUERY_TEXT} from '../redux/actions/action_types'
+import Icon from 'react-native-vector-icons/Ionicons'
 
-
-function SearchScreen({filters}) {
+function SearchScreen({filters,query,onQueryChange}) {
 
     return (
         <View  style={styles.container}>
@@ -13,23 +15,40 @@ function SearchScreen({filters}) {
 
                 <TextInput 
                     style={styles.inputQuery} 
+                    value = {query}
                     placeholder = 'Type your query (REQUIRED)'
+                    onChangeText = {(text)=>onQueryChange(text)}
                     autoFocus                     
+                />
+
+                <Icon 
+                    name='ios-paper' 
+                    size={32}
+                    color={colors.LIGHTGREEN}
                 />
 
             </View>
             <Text style={styles.textFilter}>Filters:</Text>
             <ScrollView style={styles.filterContainer}>
                 {
-                    filters.map(filter =>{
+                    filters.map((filter,i) =>{
                         return (<SwitchContainer 
+                            key = {`filterContainer${i}`}
                             title = {filter.name} 
                             switchs = {filter.data.map(dt => ({text: dt.name, selected: dt.selected}))}
+                            showFilter = {filter.show}
                         />)
                     })
                 }
             </ScrollView>
             <TouchableOpacity style={styles.searchButton}>
+                <Icon 
+                    style= {styles.searchIcon} 
+                    name='ios-search'
+                    size={32}  
+                    color = {colors.LIGHT}
+                />
+
                 <Text style={styles.textSearchButton}> Search</Text>
             </TouchableOpacity>
         </View>
@@ -52,10 +71,12 @@ const styles = StyleSheet.create({
         padding: 5,
         borderWidth: 1,
         borderRadius: 5,
+        alignItems: 'center',
     },
 
     inputQuery: {
         flex: 1,
+        color: colors.LIGHTGREEN,
     },
 
     textFilter: {
@@ -71,6 +92,7 @@ const styles = StyleSheet.create({
 
     searchButton: {
         height: 50,
+        flexDirection: 'row',
         backgroundColor: colors.DARKGREEN,
         margin: 8,
         marginBottom: 20,
@@ -78,10 +100,15 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
-
+    searchIcon:{
+        padding: 8,
+        paddingLeft:15,
+    },
     textSearchButton: {
+        flex:1,
         color: colors.LIGHT,
-        fontSize: 20
+        fontSize: 20,
+        textAlign: 'center',
     }
 
 
@@ -89,9 +116,18 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
     return {
+            query: state.query,
             filters: state.filters
     }
 
 }
 
-export default connect(mapStateToProps) (SearchScreen)
+const mapDispatchToProps = dispatch => {
+    return {
+        onQueryChange: (text)=>{
+            dispatch(changeQuery(text,CHANGE_QUERY_TEXT))
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps) (SearchScreen)

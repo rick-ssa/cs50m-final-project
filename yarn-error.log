@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/bin/node /usr/bin/yarn add @react-native-community
+  /usr/bin/node /usr/bin/yarn add react-native-vector-icons
 
 PATH: 
-  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/rick/Android/Sdk/emulator:/home/rick/Android/Sdk/tools:/home/rick/Android/Sdk/tools/bin:/home/rick/Android/Sdk/platform-tools:/home/rick/Android/Sdk/emulator:/home/rick/Android/Sdk/tools:/home/rick/Android/Sdk/tools/bin:/home/rick/Android/Sdk/platform-tools
 
 Yarn version: 
   1.17.3
@@ -14,17 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@react-native-community: Request "https://registry.yarnpkg.com/@react-native-community" returned a 405
-      at Request.params.callback [as _callback] (/usr/lib/node_modules/yarn/lib/cli.js:66839:18)
-      at Request.self.callback (/usr/lib/node_modules/yarn/lib/cli.js:140464:22)
-      at Request.emit (events.js:198:13)
-      at Request.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:141436:10)
-      at Request.emit (events.js:198:13)
-      at IncomingMessage.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:141358:12)
-      at Object.onceWrapper (events.js:286:20)
-      at IncomingMessage.emit (events.js:203:15)
-      at endReadableNT (_stream_readable.js:1145:12)
-      at process._tickCallback (internal/process/next_tick.js:63:19)
+  Error: EACCES: permission denied, unlink '/home/rick/cursos/CS50m/final-project/node_modules/@babel/core/node_modules/ms/index.js'
 
 npm manifest: 
   {

@@ -1,4 +1,11 @@
-import {ADD_FILTER_CUISINE, ADD_FILTER_DIET, ADD_FILTER_INTOLERANCES} from './actions/action_types'
+import {
+        ADD_FILTER_CUISINE, 
+        ADD_FILTER_DIET, 
+        ADD_FILTER_INTOLERANCES, 
+        CHANGE_QUERY_TEXT,
+        SHOW_FILTER,
+        HIDE_FILTER,
+    } from './actions/action_types'
 const initialState = require('../state.json')
 
 export default function recipeApp(state = initialState,action) {
@@ -11,6 +18,7 @@ export default function recipeApp(state = initialState,action) {
                             return (
                                 {
                                     name: filter.name,
+                                    show: filter.show,
                                     data: filter.data.map(cuisine=>{
                                         if(cuisine.name===action.payload.filterObject.name) {
                                             return action.payload.filterObject
@@ -31,11 +39,12 @@ export default function recipeApp(state = initialState,action) {
                             return (
                                 {
                                     name: filter.name,
-                                    data: filter.data.map(cuisine=>{
-                                        if(cuisine.name===action.payload.filterObject.name) {
+                                    show: filter.show,
+                                    data: filter.data.map(diet=>{
+                                        if(diet.name===action.payload.filterObject.name) {
                                             return action.payload.filterObject
                                         }
-                                        return {...cuisine}
+                                        return {...diet}
                                     })
                                 }
                             )
@@ -51,16 +60,39 @@ export default function recipeApp(state = initialState,action) {
                             return (
                                 {
                                     name: filter.name,
-                                    data: filter.data.map(cuisine=>{
-                                        if(cuisine.name===action.payload.filterObject.name) {
+                                    show: filter.show,
+                                    data: filter.data.map(intolerance=>{
+                                        if(intolerance.name===action.payload.filterObject.name) {
                                             return action.payload.filterObject
                                         }
-                                        return {...cuisine}
+                                        return {...intolerance}
                                     })
                                 }
                             )
                         }
 
+                        return {...filter}
+                    })
+                }
+        case CHANGE_QUERY_TEXT:
+            return {...state,query: action.payload.text}
+        case SHOW_FILTER:
+            return {
+                ...state, filters: state.filters.map(filter=>{
+                    if(filter.name===action.payload.filterName) {
+                        return {...filter,show: true}
+                    }
+
+                    return {...filter}
+                })
+            }
+        case HIDE_FILTER:
+                return {
+                    ...state, filters: state.filters.map(filter=>{
+                        if(filter.name===action.payload.filterName) {
+                            return {...filter,show: false}
+                        }
+    
                         return {...filter}
                     })
                 }

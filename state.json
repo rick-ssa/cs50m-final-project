@@ -3,6 +3,7 @@
     "filters": [
         {
           "name":"Cuisine", 
+          "show": false ,
           "data":[
                   {
                     "name":"Africa", 
@@ -110,7 +111,8 @@
                 ]
         },
         {
-          "name":"Diet", 
+          "name":"Diet",
+          "show": false, 
           "data":[
             {
               "name":"Gluten Free",
@@ -156,6 +158,7 @@
         },
         {
           "name":"Intolerances", 
+          "show": false,
           "data":[
             {
               "name":"Dairy",

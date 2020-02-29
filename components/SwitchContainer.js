@@ -2,30 +2,56 @@ import React from 'react'
 import {View, Text, StyleSheet,Switch} from 'react-native'
 import colors from '../assets/colors'
 import {connect} from 'react-redux'
-import {addFilter} from '../redux/actions/action_creators'
+import {addFilter, showFilter,hideFilter} from '../redux/actions/action_creators'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import Icon from 'react-native-vector-icons/Ionicons'
 
-function SwitchContainer({title,switchs,onSwitch}) {
+function SwitchContainer({title,switchs,onSwitch,showFilter,onShowFilter,onHideFilter}) {
     return (
         <View style = {styles.container}>
-            <Text style={styles.title}>{title}</Text>
-            {
-                switchs.map((swt,i)=>{
-                    return(<View 
+            <View style = {styles.titleWrap}>
+                <Text style={styles.title}>{title.toUpperCase()}</Text>
+                <TouchableOpacity onPress = {()=>{
+                    showFilter ? onHideFilter(title) : onShowFilter(title)
+                }} >
+                    <Icon 
+                        name={`ios-${showFilter?'remove':'add'}-circle-outline`} 
+                        color ={colors.DARKGREEN}
+                        size = {32}
+                    />
+                </TouchableOpacity>
+            </View>
+            {   
+                showFilter ?
+                switchs.map((swt,i,arr)=>{
+                    return(<TouchableOpacity 
+                                onPress = {()=>onSwitch(
+                                    {name:swt.text, selected:!swt.selected},
+                                    `addFilter${title}`
+                                )}
                                 key = {`switch ${i}`}
-                                style = {styles.itemWrap}
-                            >
-                                    <Text style = {styles.textItem}>{swt.text}</Text>
-                                    <Switch 
-                                        value={swt.selected}
-                                        trackColor={{false:'lightgray', true: colors.LIGHTGREEN}}
-                                        onValueChange = {v=>onSwitch(
-                                                            {name:swt.text, selected:v},
-                                                            `addFilter${title}`
-                                                        )}
-                                    />
-                            </View>
+                                style = {(i+1)===arr.length ? styles.lastItemWrap : styles.itemWrap}
+                            
+                            >   
+                            
+                                <Text style = {styles.textItem}>
+                                    {swt.text}
+                                </Text>
+                                
+                                
+                                <Switch 
+                                    value={swt.selected}
+                                    trackColor={{false:'lightgray', true: colors.LIGHTGREEN}}
+                                    onValueChange = {v=>onSwitch(
+                                                        {name:swt.text, selected:v},
+                                                        `addFilter${title}`
+                                                    )}
+                                />
+                            </TouchableOpacity>
                         )
                 })
+                :
+                null
             }
         
         </View>
@@ -37,15 +63,23 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         marginLeft: 8,
         marginRight: 8,
-        backgroundColor: colors.LIGHT,
+        backgroundColor: 'white',
         marginBottom: 15,
         overflow: 'hidden',
-        borderRadius: 4
+        borderRadius: 4,
+        paddingLeft: 10,
+        paddingRight: 10,
+        borderRadius: 15,
+    },
+
+    titleWrap: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
 
     title: {
-        padding: 5,
-        paddingBottom: 10,
+        flex:1,
+        padding: 10,
         flexDirection: 'row',
         textAlign: 'center',
         fontSize: 18,
@@ -54,7 +88,7 @@ const styles = StyleSheet.create({
     },
     itemWrap: {
         flexDirection: 'row',
-        padding: 10,
+        padding: 24,
         paddingLeft: 8,
         paddingRight:8,
         justifyContent: 'space-between',
@@ -62,8 +96,17 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: colors.YELLOW
     },
+    lastItemWrap: {
+        flexDirection: 'row',
+        padding: 24,
+        paddingLeft: 8,
+        paddingRight:8,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
     textItem: {
-        color: colors.DARKGREEN,
+        flex:1,
+        color: colors.LIGHTGREEN,
         fontSize: 16,
     },
 })
@@ -72,6 +115,12 @@ const mapDispatchToProps = dispatch => {
     return {
         onSwitch: (obj,act) => {
             dispatch(addFilter(obj,act))
+        },
+        onShowFilter: (filterName) => {
+            dispatch(showFilter(filterName))
+        },
+        onHideFilter: (filterName) => {
+            dispatch(hideFilter(filterName))
         }
     }
 }
