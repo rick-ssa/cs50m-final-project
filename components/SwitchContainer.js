@@ -7,10 +7,17 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 function SwitchContainer({title,switchs,onSwitch,showFilter,onShowFilter,onHideFilter}) {
+    const colorTitle = switchs.find((switchData=>switchData.selected===true)) ? {color: colors.RED} : {color: colors.DARKGREEN}
+    
     return (
         <View style = {styles.container}>
             <View style = {styles.titleWrap}>
-                <Text style={styles.title}>{title.toUpperCase()}</Text>
+                <Text 
+                    style={[styles.title,colorTitle]}
+                >
+                    {title.toUpperCase()}
+                </Text>
+
                 <TouchableOpacity onPress = {()=>{
                     showFilter ? onHideFilter(title) : onShowFilter(title)
                 }} >
@@ -84,7 +91,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 18,
         fontWeight: 'bold',
-        color: colors.DARKGREEN,
     },
     itemWrap: {
         flexDirection: 'row',
