@@ -41,16 +41,33 @@ function SearchScreen({filters,query,onQueryChange}) {
                     })
                 }
             </ScrollView>
-            <TouchableOpacity style={styles.searchButton}>
-                <Icon 
-                    style= {styles.searchIcon} 
-                    name='ios-search'
-                    size={32}  
-                    color = {colors.LIGHT}
-                />
+            {
+                query ?
 
-                <Text style={styles.textSearchButton}> Search</Text>
-            </TouchableOpacity>
+                <TouchableOpacity style={styles.searchButton}>
+                    <Icon 
+                        style= {styles.searchIcon} 
+                        name='ios-search'
+                        size={32}  
+                        color = {colors.LIGHT}
+                    />
+
+                    <Text style={styles.textSearchButton}> Search</Text>
+                </TouchableOpacity>
+
+                :
+
+                <View style={styles.searchButtonDisable}>
+                    <Icon 
+                        style= {styles.searchIcon} 
+                        name='ios-search'
+                        size={32}  
+                        color = {colors.LIGHT}
+                    />
+
+                    <Text style={styles.textSearchButton}> Search</Text>
+                </View>
+            }
         </View>
     )
 }
@@ -100,6 +117,18 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
+
+    searchButtonDisable: {
+        height: 50,
+        flexDirection: 'row',
+        backgroundColor: 'rgba(10,52,9,0.5)',
+        margin: 8,
+        marginBottom: 20,
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
     searchIcon:{
         padding: 8,
         paddingLeft:15,
