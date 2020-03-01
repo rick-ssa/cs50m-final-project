@@ -211,25 +211,27 @@
           ]
         }
     ],
-    "recepies": [{
-        "id": 492560,
-        "title": "Quick and Easy St. Louis-Style Pizza",
-        "readyInMinutes": 27,
-        "servings": 8,
-        "image": "St--Louis-Style-Pizza-492560.jpg",
-        "imageUrls": [
-          "St--Louis-Style-Pizza-492560.jpg"
-        ]
-      },{
-        "id": 559251,
-        "title": "Breakfast Pizza",
-        "readyInMinutes": 25,
-        "servings": 6,
-        "image": "Breakfast-Pizza-559251.jpg",
-        "imageUrls": [
-          "Breakfast-Pizza-559251.jpg"
-        ]
-      }
+    "recipes": [
+        {
+          "id": 492560,
+          "title": "Quick and Easy St. Louis-Style Pizza",
+          "readyInMinutes": 27,
+          "servings": 8,
+          "image": "St--Louis-Style-Pizza-492560.jpg",
+          "imageUrls": [
+            "St--Louis-Style-Pizza-492560.jpg"
+          ]
+        },
+        {
+          "id": 559251,
+          "title": "Breakfast Pizza",
+          "readyInMinutes": 25,
+          "servings": 6,
+          "image": "Breakfast-Pizza-559251.jpg",
+          "imageUrls": [
+            "Breakfast-Pizza-559251.jpg"
+          ]
+        }
     ],
     "recipePointer" : {
         "ingredients": [
