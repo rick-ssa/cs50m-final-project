@@ -6,3 +6,6 @@ export const CHANGE_QUERY_TEXT = 'changeQueryText'
 
 export const SHOW_FILTER = 'showFilter'
 export const HIDE_FILTER = 'hideFilter'
+
+export const GET_RECIPES = 'getRecipes'
+export const SET_RECIPE_POINTER =  'setRecipePointer'

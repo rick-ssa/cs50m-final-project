@@ -1,4 +1,4 @@
-import {SHOW_FILTER,HIDE_FILTER} from './action_types'
+import {SHOW_FILTER,HIDE_FILTER, GET_RECIPES, SET_RECIPE_POINTER} from './action_types'
 
 export function addFilter(filterObject,typeAction){
     return {
@@ -33,5 +33,22 @@ export function hideFilter(filterName) {
         payload: {
             filterName
         }
+    }
+}
+
+export function getRecipes(recipes) {
+    return {
+        type: GET_RECIPES,
+        payload: {
+            recipes
+        }
+    }
+}
+
+export function setRecipePointer(ingredients, prepare) {
+    return {
+        type: SET_RECIPE_POINTER,
+        ingredients,
+        prepare,
     }
 }
