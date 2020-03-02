@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import {changeQuery} from '../redux/actions/action_creators'
 import {CHANGE_QUERY_TEXT} from '../redux/actions/action_types'
 import Icon from 'react-native-vector-icons/Ionicons'
-import {getRecipes} from '../js/request'
+import {setRecipePointer} from '../js/request'
 
 function SearchScreen({filters,query,onQueryChange}) {
 
@@ -47,7 +47,7 @@ function SearchScreen({filters,query,onQueryChange}) {
 
                 <TouchableOpacity 
                     style={styles.searchButton}
-                    onPress = {()=>getRecipes(query,console.log)}
+                    onPress = {()=>setRecipePointer(559729,console.log)}
                 >
                     <Icon 
                         style= {styles.searchIcon} 
