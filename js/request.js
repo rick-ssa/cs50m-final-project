@@ -21,5 +21,16 @@ export async function getRecipes(query,callBack,number=10,offset=0,cuisine, diet
     }
 }
 
+export async function setRecipePointer(id,callback) {
+    axios.all([
+                axios.get(`recipes/${id}/ingredientWidget.json?apiKey=${config.SPOONACULAR_API_KEY}`),
+                axios.get(`recipes/${id}/analyzedInstructions?apiKey=${config.SPOONACULAR_API_KEY}`)
+            ]
+    )
+    .then(axios.spread((ingredients, prepare)=>{callback(ingredients.data.ingredients,prepare.data[0].steps,null)}),
+    err=>callback(null,null,err))
+
+}
+
 
 
