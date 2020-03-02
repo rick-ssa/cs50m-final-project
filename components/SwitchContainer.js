@@ -7,7 +7,9 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 function SwitchContainer({title,switchs,onSwitch,showFilter,onShowFilter,onHideFilter}) {
-    const colorTitle = switchs.find((switchData=>switchData.selected===true)) ? {color: colors.RED} : {color: colors.DARKGREEN}
+    let quantitySelected = switchs.filter(s=>s.selected).length
+
+    const colorTitle = quantitySelected ? {color: colors.RED} : {color: colors.DARKGREEN}
 
     return (
         <View style = {styles.container}>
@@ -17,18 +19,23 @@ function SwitchContainer({title,switchs,onSwitch,showFilter,onShowFilter,onHideF
                     showFilter ? onHideFilter(title) : onShowFilter(title)
                 }} 
             >
-            
-                <Text 
-                    style={[styles.title,colorTitle]}
-                >
-                    {title.toUpperCase()}
-                </Text>
+                <View style={styles.detailsTitle}>
+                    <Text 
+                        style={[styles.title,colorTitle]}
+                    >
+                        {title.toUpperCase()}
+                    </Text>
 
-                    <Icon 
-                        name={`ios-${showFilter?'remove':'add'}-circle-outline`} 
-                        color ={colors.DARKGREEN}
-                        size = {32}
-                    />
+                    <Text style={[styles.quantitySelected,colorTitle]}>
+                        {`${quantitySelected} selected`}
+                    </Text>
+                </View>
+
+                <Icon 
+                    name={`ios-${showFilter?'remove':'add'}-circle-outline`} 
+                    color ={colors.DARKGREEN}
+                    size = {32}
+                />
             </TouchableOpacity>
             
             {   
@@ -85,14 +92,25 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
+    detailsTitle:{
+        flex: 1,
+    },
+
     title: {
         flex:1,
-        padding: 10,
+        paddingTop: 10,
         flexDirection: 'row',
         textAlign: 'center',
         fontSize: 18,
         fontWeight: 'bold',
     },
+
+    quantitySelected: {
+        fontSize: 12,
+        paddingBottom: 10,
+        textAlign: 'center',
+    },
+
     itemWrap: {
         flexDirection: 'row',
         padding: 24,
