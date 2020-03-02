@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 
 function SwitchContainer({title,switchs,onSwitch,showFilter,onShowFilter,onHideFilter}) {
     const colorTitle = switchs.find((switchData=>switchData.selected===true)) ? {color: colors.RED} : {color: colors.DARKGREEN}
-    
+
     return (
         <View style = {styles.container}>
             <View style = {styles.titleWrap}>
@@ -68,10 +68,8 @@ function SwitchContainer({title,switchs,onSwitch,showFilter,onShowFilter,onHideF
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'column',
-        marginLeft: 8,
-        marginRight: 8,
         backgroundColor: 'white',
-        marginBottom: 15,
+        marginBottom: 16,
         overflow: 'hidden',
         borderRadius: 4,
         paddingLeft: 10,

@@ -80,14 +80,14 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "column",
         flex: 1,
+        padding: 16,
     },
 
     inputQueryWrap: {
         flexDirection: 'row',
         height: 50,
-        margin: 8,
-        marginTop: 15,
-        marginBottom: 15,
+        marginTop: 16,
+        marginBottom: 16,
         borderColor: colors.DARKGREEN,
         padding: 5,
         borderWidth: 1,
@@ -103,8 +103,8 @@ const styles = StyleSheet.create({
     textFilter: {
         color: colors.DARKGREEN,
         fontSize: 18,
-        margin: 8,
-        marginTop: 15,
+        marginTop: 16,
+        marginBottom: 8,
     },  
 
     filterContainer: {
@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
         height: 50,
         flexDirection: 'row',
         backgroundColor: colors.DARKGREEN,
-        margin: 8,
         marginBottom: 20,
         borderRadius: 5,
         justifyContent: 'center',
@@ -126,7 +125,6 @@ const styles = StyleSheet.create({
         height: 50,
         flexDirection: 'row',
         backgroundColor: 'rgba(10,52,9,0.5)',
-        margin: 8,
         marginBottom: 20,
         borderRadius: 5,
         justifyContent: 'center',
