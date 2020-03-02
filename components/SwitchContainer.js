@@ -11,23 +11,26 @@ function SwitchContainer({title,switchs,onSwitch,showFilter,onShowFilter,onHideF
 
     return (
         <View style = {styles.container}>
-            <View style = {styles.titleWrap}>
+            <TouchableOpacity 
+                style = {styles.titleWrap} 
+                onPress = {()=>{
+                    showFilter ? onHideFilter(title) : onShowFilter(title)
+                }} 
+            >
+            
                 <Text 
                     style={[styles.title,colorTitle]}
                 >
                     {title.toUpperCase()}
                 </Text>
 
-                <TouchableOpacity onPress = {()=>{
-                    showFilter ? onHideFilter(title) : onShowFilter(title)
-                }} >
                     <Icon 
                         name={`ios-${showFilter?'remove':'add'}-circle-outline`} 
                         color ={colors.DARKGREEN}
                         size = {32}
                     />
-                </TouchableOpacity>
-            </View>
+            </TouchableOpacity>
+            
             {   
                 showFilter ?
                 switchs.map((swt,i,arr)=>{
