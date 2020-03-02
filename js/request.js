@@ -13,10 +13,11 @@ export async function getRecipes(query,callBack,number=10,offset=0,cuisine, diet
     urlRequest+= intolerances ? `&intolerances=${intolerances}` : ''
     try {
         const response = await axios.get(urlRequest)
-        callBack(response, null)
+        
+        callBack([...response.data.results], null, response.status)
     } 
     catch (error) {
-        callBack(null,error)
+        callBack(null,error,response.status)
     }
 }
 
