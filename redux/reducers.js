@@ -7,6 +7,7 @@ import {
         HIDE_FILTER,
         GET_RECIPES,
         SET_RECIPE_POINTER,
+        SET_LOADING_ITEMS,
     } from './actions/action_types'
 const initialState = require('../state.json')
 
@@ -100,7 +101,13 @@ export default function recipeApp(state = initialState,action) {
                 }
         case GET_RECIPES:
             return {
-                ...state,recipes: [...action.payload.recipes]
+                ...state,
+                recipes: [...action.payload.recipes],
+                loadingItems: false,
+            }
+        case SET_LOADING_ITEMS:
+            return {
+                ...state, loadingItems: action.payload.load
             }
         default:
             return state

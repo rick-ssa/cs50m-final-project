@@ -9,3 +9,5 @@ export const HIDE_FILTER = 'hideFilter'
 
 export const GET_RECIPES = 'getRecipes'
 export const SET_RECIPE_POINTER =  'setRecipePointer'
+
+export const SET_LOADING_ITEMS = 'setLoadingItems'

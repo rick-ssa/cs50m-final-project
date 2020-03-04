@@ -1,14 +1,36 @@
 import React from 'react'
-import {View, Text,TextInput, TouchableOpacity,ScrollView, StyleSheet} from 'react-native'
+
+import {
+    View, 
+    Text,
+    TextInput, 
+    TouchableOpacity,
+    ScrollView, 
+    StyleSheet} 
+from 'react-native'
+
 import SwitchContainer from '../components/SwitchContainer'
 import colors from '../assets/colors'
 import { connect } from 'react-redux'
-import {changeQuery, actGetRecipes} from '../redux/actions/action_creators'
+
+import {
+    changeQuery, 
+    actGetRecipes,
+    setLoadingItems
+} from '../redux/actions/action_creators'
+
 import {CHANGE_QUERY_TEXT} from '../redux/actions/action_types'
 import Icon from 'react-native-vector-icons/Ionicons'
 import {getRecipes} from '../js/request'
 
-function SearchScreen({filters,query,onQueryChange, onSearch}) {
+function SearchScreen({
+    filters,
+    query,
+    onQueryChange, 
+    onSearch, 
+    navigation,
+    onLoadItems,
+}) {
 
     return (
         <View  style={styles.container}>
@@ -56,7 +78,9 @@ function SearchScreen({filters,query,onQueryChange, onSearch}) {
                         diet = diet ? diet.map(d=>d.name).join(',') : []
                         intolerances = intolerances ? intolerances.map(d=>d.name).join(',') : []
                         
-                        getRecipes(query,onSearch,10,0,cuisine,diet,intolerances)
+                        onLoadItems(true)
+                        getRecipes(query,onSearch,20,0,cuisine,diet,intolerances)
+                        navigation.navigate('Recipes')
                     }}
                 >
                     <Icon 
@@ -170,6 +194,9 @@ const mapDispatchToProps = dispatch => {
         },
         onSearch: (recipes,err,status) => {
             dispatch(actGetRecipes(recipes,err,status))
+        },
+        onLoadItems: load => {
+            dispatch(setLoadingItems(load))
         }
     }
 }

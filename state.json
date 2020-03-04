@@ -1,5 +1,6 @@
 {
     "query":"",
+    "loadingItems":false,
     "filters": [
         {
           "name":"Cuisine", 

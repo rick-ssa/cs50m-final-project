@@ -7,6 +7,7 @@ import store from './redux/Store'
 import colors from './assets/colors'
 
 import SearchScreen from  './screens/SearchScreen'
+import RecipesScreen from './screens/RecipesScreen'
 
 const Stack = createStackNavigator()
 
@@ -16,6 +17,7 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator
+          initialRouteName = {'Search'}
           screenOptions = {{
             headerStyle: {
               backgroundColor: colors.LIGHTGREEN,
@@ -26,7 +28,15 @@ export default function App() {
             }
           }}
         >
-          <Stack.Screen name = 'Search' component = {SearchScreen} />
+          <Stack.Screen 
+            name = 'Recipes'
+            component = {RecipesScreen}
+          />
+
+          <Stack.Screen 
+            name = 'Search' 
+            component = {SearchScreen} 
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
