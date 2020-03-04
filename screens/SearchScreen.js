@@ -3,12 +3,12 @@ import {View, Text,TextInput, TouchableOpacity,ScrollView, StyleSheet} from 'rea
 import SwitchContainer from '../components/SwitchContainer'
 import colors from '../assets/colors'
 import { connect } from 'react-redux'
-import {changeQuery} from '../redux/actions/action_creators'
+import {changeQuery, actGetRecipes} from '../redux/actions/action_creators'
 import {CHANGE_QUERY_TEXT} from '../redux/actions/action_types'
 import Icon from 'react-native-vector-icons/Ionicons'
-import {setRecipePointer} from '../js/request'
+import {getRecipes} from '../js/request'
 
-function SearchScreen({filters,query,onQueryChange}) {
+function SearchScreen({filters,query,onQueryChange, onSearch}) {
 
     return (
         <View  style={styles.container}>
@@ -47,7 +47,17 @@ function SearchScreen({filters,query,onQueryChange}) {
 
                 <TouchableOpacity 
                     style={styles.searchButton}
-                    onPress = {()=>setRecipePointer(559729,console.log)}
+                    onPress = {()=>{
+                        let cuisine = filters.find(f=>f.name==='Cuisine').data.filter(d=>d.selected)
+                        let diet = filters.find(f=>f.name==='Diet').data.filter(d=>d.selected)
+                        let intolerances = filters.find(f=>f.name==='Intolerances').data.filter(d=>d.selected)
+
+                        cuisine = cuisine ? cuisine.map(d=>d.name).join(',') : []
+                        diet = diet ? diet.map(d=>d.name).join(',') : []
+                        intolerances = intolerances ? intolerances.map(d=>d.name).join(',') : []
+                        
+                        getRecipes(query,onSearch,10,0,cuisine,diet,intolerances)
+                    }}
                 >
                     <Icon 
                         style= {styles.searchIcon} 
@@ -157,6 +167,9 @@ const mapDispatchToProps = dispatch => {
     return {
         onQueryChange: (text)=>{
             dispatch(changeQuery(text,CHANGE_QUERY_TEXT))
+        },
+        onSearch: (recipes,err,status) => {
+            dispatch(actGetRecipes(recipes,err,status))
         }
     }
 }

@@ -36,11 +36,13 @@ export function hideFilter(filterName) {
     }
 }
 
-export function getRecipes(recipes) {
+export function actGetRecipes(recipes, err, status) {
     return {
         type: GET_RECIPES,
         payload: {
-            recipes
+            recipes,
+            status,
+            err
         }
     }
 }

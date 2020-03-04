@@ -5,6 +5,8 @@ import {
         CHANGE_QUERY_TEXT,
         SHOW_FILTER,
         HIDE_FILTER,
+        GET_RECIPES,
+        SET_RECIPE_POINTER,
     } from './actions/action_types'
 const initialState = require('../state.json')
 
@@ -96,6 +98,10 @@ export default function recipeApp(state = initialState,action) {
                         return {...filter}
                     })
                 }
+        case GET_RECIPES:
+            return {
+                ...state,recipes: [...action.payload.recipes]
+            }
         default:
             return state
     }
