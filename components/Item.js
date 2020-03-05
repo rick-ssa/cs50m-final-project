@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View,Image,Text,TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import colors from '../assets/colors'
@@ -7,9 +7,17 @@ function setImageUrl(id,size,type) {
     return `https://spoonacular.com/recipeImages/${id}-${size}.${type}`
 }
 
-function Item({title,time,serves,id,type}){
+function Item({
+    title,
+    time,
+    serves,
+    zeros,
+    id,
+    type}){
+
     return (
         <TouchableOpacity style = {styles.itemContainer}>
+            
             <Image 
                 style = {styles.image}
                 source = {type ? {uri: setImageUrl(id,'90x90',type)} : require('../assets/defaultImage.jpg')}
@@ -30,6 +38,7 @@ function Item({title,time,serves,id,type}){
                         style= {styles.icon}
                         name = 'clock'
                     />
+                    {/* <Text style ={styles.zeros}>{zeros}</Text> */}
                     <Text style = {styles.iconText}>{time}m</Text>
                 </View>
 
@@ -60,7 +69,7 @@ const styles = StyleSheet.create({
         width: 60,
         height: 60,
         borderRadius: 30,
-        backgroundColor: 'white',
+        backgroundColor: colors.YELLOW,
     },
 
     title: {
@@ -74,15 +83,14 @@ const styles = StyleSheet.create({
     },
 
     details: {
-        alignItems:'flex-start',
+        minWidth:75
     },
 
     iconContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'flex-start',
+        justifyContent: 'space-between',
         padding: 5,
-        width: '100%',
     },
 
     icon: {
@@ -91,8 +99,14 @@ const styles = StyleSheet.create({
         fontSize: 14,
     },
 
+    zeros: {
+        color: colors.LIGHT
+    },
+
     iconText: {
         color: colors.RED,
+        textAlign: 'right',
+
     },
 })
 
