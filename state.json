@@ -214,8 +214,111 @@
     ],
     "recipes": [],
     "recipePointer" : {
-      "ingredients": [],
-      "prepare": []
+      "id": 506601,
+      "title": "test",
+      "ingredients": [{
+        "name": "angel food cake",
+        "image": "angel-food-cake.jpg",
+        "amount": {
+          "metric": {
+            "value": 1.0,
+            "unit": "large"
+          },
+          "us": {
+            "value": 1.0,
+            "unit": "large"
+          }
+        }
+      },
+      {
+        "name": "fresh mixed berries",
+        "image": "berries-mixed.jpg",
+        "amount": {
+          "metric": {
+            "value": 620.0,
+            "unit": "g"
+          },
+          "us": {
+            "value": 4.0,
+            "unit": "cups"
+          }
+        }
+      }],
+      "prepare": [{
+        "number": 1,
+        "step": "To make the vanilla pudding, warm milk in a medium sauce pot over medium heat. While milk is warming, stir together sugar, cornstarch and salt in a small bowl. Once milk has started to create bubbles around the edge of the pan, slowly whisk in the sugar mixture. Continue whisking until mixture begins to thicken being careful not to boil.",
+        "ingredients": [
+          {
+            "id": 20027,
+            "name": "corn starch",
+            "image": "white-powder.jpg"
+          },
+          {
+            "id": 2050,
+            "name": "vanilla",
+            "image": "vanilla.jpg"
+          },
+          {
+            "id": 19335,
+            "name": "sugar",
+            "image": "sugar-in-bowl.png"
+          },
+          {
+            "id": 1077,
+            "name": "milk",
+            "image": "milk.png"
+          },
+          {
+            "id": 2047,
+            "name": "salt",
+            "image": "salt.jpg"
+          }
+        ],
+        "equipment": [
+          {
+            "id": 404661,
+            "name": "whisk",
+            "image": "whisk.png"
+          },
+          {
+            "id": 404752,
+            "name": "pot",
+            "image": "stock-pot.jpg"
+          },
+          {
+            "id": 404783,
+            "name": "bowl",
+            "image": "bowl.jpg"
+          },
+          {
+            "id": 404645,
+            "name": "frying pan",
+            "image": "pan.png"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "step": "Remove from heat and gently stir in the vanilla and butter. Chill pudding in the refrigerator for 2-3 hours before assembling trifle.While pudding is cooling, prepare angel food cake according to package instructions.",
+        "ingredients": [
+          {
+            "id": 18088,
+            "name": "angel food cake",
+            "image": "angel-food-cake.jpg"
+          },
+          {
+            "id": 2050,
+            "name": "vanilla",
+            "image": "vanilla.jpg"
+          },
+          {
+            "id": 1001,
+            "name": "butter",
+            "image": "butter-sliced.jpg"
+          }
+        ],
+        "equipment": []
+      }]
     }
 
 }
