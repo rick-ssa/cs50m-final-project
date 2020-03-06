@@ -15,7 +15,7 @@ function zerosToFourDigits (number){
     return result
 }
 
-function Items({recipes}) {
+function Items({recipes, navigation}) {
     return (            
         <FlatList 
             data = {recipes}
@@ -27,6 +27,7 @@ function Items({recipes}) {
                     time = {item.readyInMinutes}
                     serves = {item.servings}
                     zeros = {zerosToFourDigits(item.readyInMinutes)}
+                    navigation = {navigation}
                 />
             )}
             keyExtractor = {item=>('i'+item.id )}

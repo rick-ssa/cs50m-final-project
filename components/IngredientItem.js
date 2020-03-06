@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     },
 
     metric: {
-        flex: 1,
+        flex: 2,
         flexDirection: 'row',
         paddingRight: 8,
     },
@@ -36,12 +36,14 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: colors.DARKGREEN,
         fontStyle: 'italic',
+        paddingRight: 4,
     },
     
     unit: {
         fontSize: 18,
         color: colors.DARKGREEN,
         fontStyle: 'italic',
+        paddingRight: 4,
     },
 
     text: {

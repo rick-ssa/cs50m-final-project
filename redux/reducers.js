@@ -109,6 +109,16 @@ export default function recipeApp(state = initialState,action) {
             return {
                 ...state, loadingItems: action.payload.load
             }
+        case SET_RECIPE_POINTER:
+            return {
+                ...state,
+                recipePointer: {
+                    id: action.payload.id,
+                    title: action.payload.title,
+                    ingredients: [...action.payload.ingredients],
+                    prepare: [...action.payload.prepare]                
+                }
+            }
         default:
             return state
     }

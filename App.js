@@ -8,7 +8,7 @@ import colors from './assets/colors'
 
 import SearchScreen from  './screens/SearchScreen'
 import RecipesScreen from './screens/RecipesScreen'
-import RecipeScreen from './screens/RecipeScreen'
+import IngredientScreen from './screens/IngredientScreen'
 
 const Stack = createStackNavigator()
 
@@ -18,7 +18,7 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName = {'Recipe'}
+          initialRouteName = {'Search'}
           screenOptions = {{
             headerStyle: {
               backgroundColor: colors.LIGHTGREEN,
@@ -31,7 +31,7 @@ export default function App() {
         >
           <Stack.Screen
             name = 'Recipe'
-            component = {RecipeScreen}
+            component = {IngredientScreen}
           />
 
         

@@ -53,11 +53,15 @@ export function actGetRecipes(recipes, err, status) {
     }
 }
 
-export function setRecipePointer(ingredients, prepare) {
+export function actSetRecipePointer(id,title,ingredients, prepare) {
     return {
         type: SET_RECIPE_POINTER,
-        ingredients,
-        prepare,
+        payload: {
+            id,
+            title,
+            ingredients,
+            prepare,
+        }
     }
 }
 

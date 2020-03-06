@@ -13,10 +13,14 @@ function Item({
     serves,
     zeros,
     id,
-    type}){
+    type,
+    navigation,}){
 
     return (
-        <TouchableOpacity style = {styles.itemContainer}>
+        <TouchableOpacity 
+            style = {styles.itemContainer}
+            onPress = {()=>navigation.navigate('Recipe',{id:id, title:title})}
+        >
             
             <Image 
                 style = {styles.image}

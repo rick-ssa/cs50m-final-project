@@ -10,7 +10,7 @@ import Items from '../components/Items'
 
 import {connect} from 'react-redux'
 
-function RecipesScreen({loading}) {
+function RecipesScreen({loading, navigation}) {
     console.log(loading)
     return (
         <SafeAreaView style = {styles.container}>
@@ -22,7 +22,7 @@ function RecipesScreen({loading}) {
                     size = {60}
                 />
                 :
-                <Items />
+                <Items navigation = {navigation}/>
             }
         </SafeAreaView>
     )
