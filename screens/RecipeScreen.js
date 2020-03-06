@@ -6,8 +6,6 @@ import {
     ScrollView,
     Image,
     Text,
-    FlatList,
-    Dimensions,
 } from 'react-native';
 
 import {connect} from 'react-redux'
