@@ -73,7 +73,7 @@ function IngredientScreen({recipe,route,setRecipe}) {
                             return (
                                 <IngredientItem 
                                     key = {'i' + index}
-                                    quantity = {ing.amount.metric.value.toFixed(2)} 
+                                    quantity = {ing.amount.metric.value.toFixed(1)} 
                                     unit = {ing.amount.metric.unit} 
                                     ingredient = {ing.name} />
                             )
