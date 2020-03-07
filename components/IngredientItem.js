@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingLeft:16,
         paddingRight: 16,
+        alignItems: 'center',
     },
 
     metric: {
