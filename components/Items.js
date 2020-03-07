@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList,StyleSheet} from 'react-native';
+import {FlatList,StyleSheet, View, Text} from 'react-native';
 import Item from './Item'
 import ItemSeparator from './ItemSeparator'
 import colors from '../assets/colors'
@@ -30,6 +30,11 @@ function Items({recipes, navigation}) {
                     navigation = {navigation}
                 />
             )}
+            ListEmptyComponent = {()=>(
+                <View style={styles.emptyContainer}>
+                    <Text style ={styles.emptyText}>Nothing has returned. Please try to redo your search.</Text>
+                </View>
+            )}
             keyExtractor = {item=>('i'+item.id )}
             ItemSeparatorComponent = {()=><ItemSeparator/>}
             initialNumToRender = {12}
@@ -42,6 +47,18 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors.LIGHT,
+    },
+    emptyContainer: {
+        flex: 1,
+        backgroundColor: colors.LIGHT,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 16,
+    },
+    emptyText: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: colors.DARKGREEN,
     }
 })
 

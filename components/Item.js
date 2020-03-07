@@ -19,7 +19,11 @@ function Item({
     return (
         <TouchableOpacity 
             style = {styles.itemContainer}
-            onPress = {()=>navigation.navigate('Recipe',{id:id, title:title})}
+            onPress = {()=>navigation.navigate('Recipe',{
+                    screen:'ingredients',
+                    params:{id: id,title: title}
+                }
+            )}
         >
             
             <Image 

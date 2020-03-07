@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
     StyleSheet, 
-    ActivityIndicator,
     View,
     ScrollView,
     Image,
@@ -11,10 +10,7 @@ import {
 import {connect} from 'react-redux'
 
 import colors from '../assets/colors'
-import IngredientItem from '../components/IngredientItem';
 import PrepareStep from '../components/PrepareStep';
-import {setRecipePointer} from '../js/request'
-import {actSetRecipePointer} from '../redux/actions/action_creators'
 
 
 function DirectionScreen({recipe}) {
@@ -49,9 +45,9 @@ function DirectionScreen({recipe}) {
 
                     <Text style = {styles.subTitle}>Directions</Text> 
                     {
-                        recipe.prepare.map(dir=>{
+                        recipe.prepare.map((dir,index)=>{
                             return(
-                                <PrepareStep step = {dir.number} description={dir.step}/>
+                                <PrepareStep key={'d' + index} step = {dir.number} description={dir.step}/>
                             )
                         })
                     }

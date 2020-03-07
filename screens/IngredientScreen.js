@@ -69,21 +69,13 @@ function IngredientScreen({recipe,route,setRecipe}) {
 
                     <Text style = {styles.subTitle}>Ingredients</Text>
                     {
-                        recipe.ingredients.map(ing=>{
+                        recipe.ingredients.map((ing,index)=>{
                             return (
                                 <IngredientItem 
+                                    key = {'i' + index}
                                     quantity = {ing.amount.metric.value.toFixed(2)} 
                                     unit = {ing.amount.metric.unit} 
                                     ingredient = {ing.name} />
-                            )
-                        })
-                    }
-
-                    <Text style = {styles.subTitle}>Directions</Text> 
-                    {
-                        recipe.prepare.map(dir=>{
-                            return(
-                                <PrepareStep step = {dir.number} description={dir.step}/>
                             )
                         })
                     }
