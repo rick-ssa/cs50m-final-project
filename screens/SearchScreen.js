@@ -41,7 +41,9 @@ function SearchScreen({
                     value = {query}
                     placeholder = 'Type your query (REQUIRED)'
                     onChangeText = {(text)=>onQueryChange(text)}
-                    autoFocus                     
+                    autoFocus  
+                    selectTextOnFocus
+                                       
                 />
 
                 <Icon 
